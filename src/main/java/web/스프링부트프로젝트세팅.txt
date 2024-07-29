@@ -1,0 +1,119 @@
+JDK : 자바 개발도구 v.17 ( 컴파일러 포함 , jar[각종 미리 만든 클래스 ] 포함 )
+라이브러리 : ( 도구 ) 클래스, 인터페이스 들을 모아둔 압축파일 
+프레임워크 : ( 틀 ) 프로그램 개발하기 위해 틀을 제공하는 프로그램 
+	프레임워크[  라이브러리[ 클래스[ 코드 ] ] ]
+
+SPRING : 자바를 이용한 라이브러리 들의 집합들로 만든 프레임워크/프로그램 
+
+SPRING BOOT : SPRING 세팅을 간소화/자동화 
+	- SPRING WEB	- Srping batch 등등 세팅을 손쉽게 제공 
+
+프로젝트 : JAVA[gradle]  프로젝트 
+	- IntelliJ IDEA Community Edition 무료버전에서  Spring  프로젝트  지원 안함.
+	- gradle 프로젝트 만들어서 직접 spring 세팅[ https://start.spring.io/ ]
+
+그레이들[Gradle] : 그루비를 이용한 빌드 자동화 시스템이다
+	- 그루비 : JAVA 기반으로 만들어진 객체지향 언어 
+	- 외부 라이브러리/프레임워크 설치 해주고 관리 해주는 프로그램
+
+- 자동화 시스템 아니면????
+	- .jar 다운로드 받고 ---> jar파일 프로젝트내 저장 --> jar 파일을 오른쪽 클릭해서 프로젝트에 등록
+		- 외부 라이브러리 많아지면 관리가 힘들다.
+		mysql-connector-j-8.4.0.jar
+	- 외부 라이브러리들을 아래와 그레이들 형식의 코드를 통해 자동 다운로드/빌드/세팅 
+		implementation 'org.springframework.boot:spring-boot-starter-web
+
+- 스프링 WEB 프레임워크 
+	왜??? 미리 규칙/규약/세팅/법  , MVC 패턴을 미리 다 세팅 , 
+	전자정부 프레임워크( SPRING ) : 한사람이 평생 못해 --> 담당자/개발자 변경 -->  이어서 개발이 되도록
+	
+- 스프링 프로젝트 세팅
+Project			Gradle - Groovy
+Language		Java
+Spring Boot		3.x
+Project Metadata
+	Group		(임의)홈페이지명URL 반대로
+	Artifact		(임의)
+	Name		(임의)
+	Description	(임의)
+	Package name	(임의)
+	Packaging	JAR
+	Java		17
+Dependencies
+	Spring Web
+
+[ GENERATE ] 	: .zip 다운로드 [ 프로젝트 세팅 파일 ]
+[ EXPLORE ] 	: 프로젝트 셋팅 코드
+
+=======================================
+인텔리제이
+1. 새 프로젝트
+	이름 : springProject(임의)
+	위치 : ~\Desktop
+		git 저장소 생성(체크 안함)
+	시스템 빌드 : gradle
+	JDK : 17
+	Gradle DSL : Groovy
+	- 샘플코드추가(없음) , 고급 설정(없음)
+	[ 생성 ]
+
+2. 스프링 기본 세팅 
+	0. 라이브러리 세팅 
+		1. https://start.spring.io/
+		2. 버전 체크 
+		3. [Dependencies] 원하는 라이브러리 선택
+			Spring Web
+		[ EXPLORE ] 
+		build.gradle 파일의 코드 복사 
+
+	1.  프로젝트 폴더 -> src -> main -> java -> 패키지 구성 ( web )
+		1. 클래스 생성 ( 임의 ) - 최상위 패키지 
+		2. 클래스 위에 
+		@SpringBootApplication 어노테이션 주입 
+		3. main 함수 
+		SpringApplication.run( 현재클래스명.class );
+
+	2.  프로젝트 폴더 -> build.gradle -> 웹에서 복사한 코드 붙여넣기 
+		-> 그레이들 변경 내용 로드 
+
+	3. 프로젝트 폴더 -> resources -> static
+		-> index.html
+
+- Apache Tomcat  : Apache  + Tomcat 
+	- HTML , 서블릿(클래스) 들을 클라이언트로 부터 요청/응답의 서비스를 구축하는 프로그램 
+	Apache : 서버 : HTTP 지원하는 서버(구축) 프로그램 
+		- HTTP규약에 따른 통신 가능 , 
+	Tomcat : 서버 : JAVA 기반으로 만들어진 서버(구축) 프로그램 
+		- JSP , Servlet(클래스)* 규약에 따른 통신 가능
+- Server :  서비스를 제공하는 컴퓨터 
+- Client : 서비스를 요청하는 컴퓨터 
+	url : https://www.naver.com  	--- 요청 네이버 회사에게 메인페이지 줘 ---> 네이버 서버실에서 메인페이지 [매핑]찾아서
+				<----------- 찾은 HTML 전달 -------------
+
+- HTTP : 하이퍼텍스트 전송 프로토콜 
+	- 문서 를 교환할때 사용되는 규약(인터넷)
+	- 문서( HTML , XML , TEXT 등 ) 
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

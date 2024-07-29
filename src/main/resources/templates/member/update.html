@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{ /header.html :: header }"></div>
+    수정 페이지
+    <form >
+        <div> 번호 : <span class="no"> </span> </div>
+        <div> 아이디 : <span class="id"> </span></div>
+        <div> 기존비밀번호 : <input class="pw" /> </div>
+        <div> 새로운 비밀번호 : <input class="newPw" /> </div>
+        <div> 이름 : <input class="name" /> </div>
+        <div> 연락처 : <input class="phone" /> </div>
+        <div> 이메일 : <span class="email"> </span> </div>
+        <button type="button" onclick="doUpdate()">수정</button>
+    </form>
+    <script src="/js/member/update.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
+</body>
+</html>

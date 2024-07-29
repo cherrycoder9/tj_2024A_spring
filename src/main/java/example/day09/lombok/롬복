@@ -1,0 +1,9 @@
+롬복
+Getter , Setter , ToString 등등 흔히 만드는 코드를 자동으로 만들어주는 유틸리티 라이브러리
+[1] 인텔리제이 롬복 설치
+	1. 인텔리제이 상단 메뉴 -> 파일 -> 설정 -> 플러그인
+	2. lombok 검색 -> 설치 -> 적용 -> 확인
+[2] 롬복 디펜더시 추가
+	compileOnly 'org.projectlombok:lombok'
+  	annotationProcessor 'org.projectlombok:lombok'
+

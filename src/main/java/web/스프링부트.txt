@@ -1,0 +1,91 @@
+스프링부트
+    - 스프링과 스프링부트은 구성내용 자체는 다르지 않다.
+    - 스프링부트는 스프링을 조금더 쉽게 자동으로 설정을 세팅/관리 를 해주는 역할
+    - JAVA , DB , HTML , CSS , JS , *servlet 등등 이해도 필요하다.
+    - 스프링
+        1. POJO(Plain Old Java Object) 기반의 경량화된 개발 환경을 제공하는 오픈소스 프레임워크
+            - 무겁고 복잡한 객체가 아닌 JAVA로 생성한 순수한 객체 뜻 : 오래된 방식의 간단한 자바 객체
+            - JAVA 알면 스프링 알기 쉽다. ( 자바 객체지향 문법의 충실하다 )
+            - 오픈소스 : 누구나 볼수 있도록 공개한 코드
+            - 프레임워크 : 틀/뼈대 를 제공해서 일정한 규약을 가지고 무언가를 작업하는 일
+                vs 라이브러리 : 도구 제공 ( 미리 만든 클래스/인터페이스/메소드 제공 )
+        2. 엔터프라이즈 시스템 개발에 필요한 모든 분야를 지원하는 하나의 플랫폼으로 발전되었다.
+            - 엔터프라이즈(Enterprise) : 복잡하고 정교한 대규모의 모델
+        3. 대한민국의 전자 정부 표준 프레임워크로 채택 되었다.
+            - 공공부문의 정보화 사업의 플랫폼 기준.
+    - 스프링부트
+        * 개발자가 환경설정은 자동화/간소화 하고 비지니스로직에 집중 할수 있게 되었다.
+        1. 복잡한 여러개 라이브러리 관리를 하는 xml 방식을 간소화
+            - 라이브러리 자동화 도구 : 그레이들 또는 메이븐 프로그램
+            - 스프링부트는 기본적으로 모든 빈(Bean)/인스턴스 설정을 xml이 아닌 @(어노테이션)으로 처리한다.
+        2. 톰캣(Tomcat) 웹 서버를 내장 , 복잡한 외적인 환경 설정과 실행을 간소화
+
+        - 스프링부트 를 인텔리제이 에서 설치 및 세팅 , 스프링부트프로젝트세팅.txt 참고
+        * 인텔리제이에서 코드 파일 또는 console 에서 한글이 깨지는 경우
+            [1]
+            1. 메뉴 -> 파일 -> 설정 -> 검색에 '파일 인코딩'
+            2. 프로젝트 인코딩 : utf-8  , 프로퍼티 파일 인코딩 : utf-8
+            [2]
+            1. 메뉴 -> 도움말 -> 사용자 지정 VM 옵션 편집
+            2. 아래 코드 입력후 저장
+            -Dfile.encoding=UTF-8
+            -Dconsole.encoding=UTF-8
+            3. 인텔리제이 재실행
+            - 안될경우 1. 오타 확인 2. 메뉴-> 파일 -> 캐시 무효화 -> 옵션 모두 체크후 -> 다시시작
+
+    - 스프링부트 프로젝트 구조
+        * 순수 java 프로젝트와 달리 프로젝트 패키지구조를 규칙/규약/약속 대로 지켜야 한다.
+            - 개발자 협업간의 미리 정해진 규칙 이므로 협업에 용이하다. ( 자유도가 떨어짐. )
+        1. src
+            -> main
+                -> java : 개발자가 만들 자바 소스파일을 위취할 패키지
+                    -> 패키지 : 상위 패키지명는 주로 웹사이트의 URL(주소)를 반대로 한다.
+
+                    ex] naver.com
+                    -> com 패키지
+                        -> naver 패키지
+                            -> AppStart : 해당 스프링부트를 실행하는 클래스
+        2. resources
+            -> application.properties   : 프로젝트의 전반적인 설정/속성 정보를 작성하는 파일
+            -> static                   : 정적인 웹 리소스 파일 위치할 패키지 , HTML , CSS , JS 등등
+            -> templates                : 동적인 웹 리소스 파일 위치할 패키지 , JSP , 타임리프 , 머스테치 등등
+        3. build.gradle                 : 라이브러리 들의 의존성 설정 등 프로젝트 전반의 환경을 설정하는 파일
+
+    - 정적 리소스 : 순수HTML 이므로 웹 서버가 별도의 렌더링이 없다.
+        - resources 하위 의 static 폴더에 저장하고 사용
+        - HTML , CSS , JS
+        - 순수 프론트엔드
+
+    - 동적 리소스 : 웹 서버 가 렌더링 해서 HTML에게 클라이언트에게 반환
+        - resources 하위 의 templates 폴더에 저장하고 사용
+        - JSP( HTML+JSTL[JAVA] ) , 타임리프( HTML+새로운문법 ) , 머스테치( HTML+새로운문법 )
+            JSP : HTML 과 JAVA 언어를 하나의 파일에 작성할수 있도록 만든 템플릿
+                프론트엔드개발자:HTML,CSS,JS    백엔드개발자 : JAVA , PYTHON
+                프론트엔드개발자:HTML,CSS,JS <--RESTAPI(AJAX)--->백엔드개발자 : SPRING(JAVA)
+
+        - JAVA와 HTML 조합 된 템플릿
+        - Spring회사에서는 jsp 지원하지 않는다.
+        - springboot 에서 jsp 사용하는 방법
+            [1] 그레이들
+            - implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+            [2] application.properties
+                spring.mvc.view.prefix=/WEB-INF/views/
+                spring.mvc.view.suffix=.jsp
+            [3] .jsp 파일 위치
+                 - jsp 파일들은 프로젝트내 src > main > webapp > WEB-INF > .jsp
+
+    - 현 수업에서 타임리프 사용
+        [1] 그레이들
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        [2] 타임리프 파일 위치
+            - resources > templates > .html
+
+
+
+
+
+
+
+
+
+

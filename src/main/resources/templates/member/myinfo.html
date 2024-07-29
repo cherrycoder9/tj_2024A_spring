@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:replace="~{ /header.html :: header }"></div>
+    마이 페이지
+    <div id="myInfoBox">
+
+    </div>
+
+    <button type="button" onclick="location.href='/member/update'"> 정보수정 </button>
+    <button type="button" onclick="location.href='/member/leave'"> 탈퇴 </button>
+
+    <script src="/js/member/myinfo.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
+
+</body>
+</html>

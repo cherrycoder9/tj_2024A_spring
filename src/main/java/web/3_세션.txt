@@ -1,0 +1,22 @@
+아파치 톰캣( 웹서버 소프트웨어 )
+세션 : 아파치 톰캣( 웹서버 ) 저장소
+    - HTTP 요청에 따른 *브라우저 마다* 의 (객체) 저장소
+        - HttpSession
+    - 주로 로그인정보, 장바구니 , 인증, 인가 사용됩니다.
+    - 생명주기 : 서버가 꺼지면 사라짐 , 세션 초기화 , 특정 시간
+    - 너무 많이 사용되면 웹서버의 과부하 되므로 적절히 사용
+    - HTTP 요청 객체
+        HttpServletRequest request;
+    - 메소드
+        1. request.getSession()    : 현재 HTTP 요청의 세션 객체 호출
+        2. (세션객체).setAttribute( 'key' , value ) : 세션 객체내 속성 추가
+            - 모든 데이터들의 value 타입은 Object 자동 형변환이 된다.
+        3. (세션객체).getAttribute( 'key' ) : 세션 객체내 속성의 값 호출
+            - 강제형 변환변환 이 필요하다.
+        4. (세션객체).invalidate();     : 세션 객체내 모든 속성을 제거
+        5. (세션객체).setMaxInactiveInterval( 초 );      : 해당 초 만큼의 세션 생명주기 설정
+
+
+
+
+

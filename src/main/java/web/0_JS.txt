@@ -1,0 +1,25 @@
+JS 에서는 함수도 자료 타입의 종류 중 하나
+
+- 함수 정의
+    1. 일반/선언적 함수
+        - function 함수명(){}
+    2. 익명함수
+        - function(){ }
+        - const 상수명 = function(){}
+    3. 화살표 함수
+        - ( ) => { }
+        - const 상수명 = ( ) => { }
+
+- setInterval( 함수정의 , 밀리초 )
+    - 밀리초 주기 마다 함수 실행
+    - 1.
+        function 함수명(){}
+        setInterval( 함수명() , 밀리초 )
+    - 2.
+        setInterval( function(){} , 밀리초 )
+    - 3.
+        setInterval( ( ) => { } , 밀리초 )
+    - clearInterval( 인터벌변수 );
+        - 인터벌 종료 함수
+        - let 변수명 = setInterval( 함수정의 , 밀리초 )
+

@@ -1,0 +1,16 @@
+// [1] 인스턴스 생성후 인스턴스를 통한 메소드 호출
+    MemberService memberService = new MemberService();
+    memberService.mSignup( memberDto );
+
+// [2] 인스턴스 생성후 인스턴스를 통한 메소드 호출
+    new MemberService().mSignup( memberDto );
+
+// [3] 메소드가 static 일때는 클래스를 통한 메소드 호출
+    MemberService.mSignup( memberDto );
+
+// [4] 싱글톤
+    MemberService.getInstance().mSignup( memberDto );
+
+// [5] 역전제어(IOC) , 의존성주입( DI )
+    @Autowired MemberService service;
+    service.mSignup( memberDto );

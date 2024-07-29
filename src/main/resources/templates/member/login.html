@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{ /header.html :: header }"></div>
+    로그인 페이지
+    <form>
+        아이디 : <input id="id"/> <br/>
+        비밀번호 : <input id="pw"/> <br/>
+        <button type="button" onclick="doLogin()">로그인</button>
+    </form>
+
+
+    <script src="/js/member/login.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
+</body>
+</html>

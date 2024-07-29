@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h3> 전화번호 기록부</h3>
+    <input id="name" type="text" placeholder="이름"/>
+    <input id="phone" type="text" placeholder="전화번호"/> <br/>
+    <button onclick="postPhone()" type="button">등록</button>
+    <div id="phoneListBox">
+
+    </div>
+
+    <!-- AJAX : HTTP 통신 지원하는 라이브러리 는 JQUERY 에서 지원  -->
+    <!-- 1. 최신 jquery 라이브러리 필요 , 주의할점 : jquery 사용할 js보다 위에서 작성 -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="phonebook.js"></script>
+
+</body>
+</html>

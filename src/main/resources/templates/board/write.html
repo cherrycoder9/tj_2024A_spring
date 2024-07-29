@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 해당 페이지에서만 사용할 CSS  -->
+    <!-- 1. 썸머노트 CSS , 부트스트랩 버전과 썸머노트 버전  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
+
+</head>
+<body>
+    <div th:replace="~{ /header.html :: header }"></div>
+    <div class="container">
+        <h3> 게시물 쓰기 페이지 </h3>
+        <form class="boardWriteForm">
+
+            <div style="margin : 10px 0px; display:flex">
+                <select name="bcno" class="categoryBox form-select" style="width:10%">
+                    <option value="카테고리번호FK"> 카테고리이름 </option>
+                </select>
+                <input type="text" name="btitle" class="btitle form-control"  placeholder="제목"  />
+            </div>
+
+            <div><textarea id="summernote" name="bcontent" class="bcontent"></textarea></div>
+
+            <div> 첨부파일 <input type="file" name="uploadFile" class="bfile" /> </div>
+            <button type="button" onclick="doBoardWrite()">글쓰기</button>
+        </form>
+    </div>
+
+    <!-- 1. 썸머노트 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js" ></script>
+    <!-- 2. 썸머노트 한글 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js" ></script>
+
+    <script src="/js/board/write.js"></script>
+
+    <div th:replace="~{ /footer.html :: footer }"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{ /header.html :: header }"></div>
+
+    회원가입 페이지
+    <form>
+        아이디 : <input  onkeyup="idCheck()"  id="id"/>
+        <div class="idCheckBox"></div>
+
+        비밀번호 : <input  onkeyup="pwCheck()"  id="pw" type="password" /> <br/>
+        비밀번호 확인 : <input  onkeyup="pwCheck()"  id="pwConfirm" type="password" />
+        <div class="pwCheckBox"> </div>
+
+        이름 : <input onkeyup="nameCheck()" id="name"/>
+        <div class="nameCheckBox"></div>
+
+        연락처 : <input onkeyup="phoneCheck()" id="phone"/>
+        <div class="phoneCheckBox"></div>
+
+        이메일 : <input onkeyup="emailCheck()" id = "email"/>
+        <button class="authBtn" type="button" onclick="doAuth()" disabled > 인증요청 </button>
+        <div class="authBox"></div>
+        <div class="emailCheckBox"></div>
+
+        <button type="button" onclick="doSignup()">회원가입</button>
+    </form>
+
+    <script src="/js/member/signup.js"></script>
+
+    <div th:replace="~{ /footer.html :: footer }"></div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+1,2번 문제 
+
+package day03;
+
+public class 과제 {
+    public static void main(String[] args) {
+        System.out.println("\\      /\\");
+        System.out.println(" )    (  \')");
+        System.out.println("(    /   )");
+        System.out.println(" \\   (__)|");
+
+        String t1 = "출석" ;
+        String t2 = "결석" ;
+
+
+        System.out.println("            [[ 출석부 ]]            ");
+        System.out.println("===================================");
+        System.out.println("학생명\t1교시\t2교시\t3교시\t비고");
+        System.out.println("강호동\t"+t1+"\t\t"+t2+"\t\t"+t1+" " );
+        System.out.println("유재석\t"+t1+"\t\t"+t2+"\t\t"+t1+" " );
+    }
+}
+3번문제
+
+package day03;
+
+public class 과제2 {
+    public static void main(String[] args) {
+        byte value1 = 100 ;
+        short value2 = 30000;
+        int value3 = 2000000000;
+        long value4 = 40000000000L;
+        float value5 = 3.123123123F;
+
+        short svalue = value1 ;
+        int ivalue = value2;
+        long lvalue = value3;
+        float fvalue = value4;
+        double dvalue = value5 ;
+
+        System.out.println("byte -> short : " + svalue);
+        System.out.println("short -> int : " + ivalue);
+        System.out.println("int -> long : " + lvalue);
+        System.out.println("long  -> float :" + fvalue);
+        System.out.println("float -> double :" + dvalue);
+
+    }
+}
+
+
+4번문제 
+
+package day03;
+
+public class 과제3 {
+    public static void main(String[] args) {
+        short value1 = 30000;
+        int value2 = 2000000000;
+        long value3 = 40000000000L;
+        float value4 = 3.123123123F;
+        double value5 = 3.123123123;
+
+        byte bvalue = (byte) value1;
+        int ivalue = (short) value2 ;
+        long lvalue = (int) value3 ;
+        float fvalue = (long) value4 ;
+        double dvalue = (float) value5 ;
+
+
+
+        System.out.println("byte <- short " + bvalue);
+        System.out.println("short <- int " + ivalue );
+        System.out.println("int <- long " + lvalue);
+        System.out.println("long <- float " + fvalue);
+        System.out.println("float <- double " + dvalue);
+
+        //floatValue = 100.123F;
+        //double doubleValue = floatValue;    // float타입의 값을 double타입으로 대입 : 묵시적 형 변환
+        //System.out.println("doubleValue = " + doubleValue);
+	
+	
+    }
+}
+  마지막 세줄 주석처리된부분이 강의코드에 나와있는거 복사했습니다 .
+  저코드로 실행하면 오류가나와서  제가 이해한대로 작성해봤는데 채점부탁드립니다 .  
+

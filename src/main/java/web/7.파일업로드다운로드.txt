@@ -1,0 +1,101 @@
+- 스트림 : 데이터가 다니는 통로의 흐름를 의미
+    - 주로 자바 외 장치와 데이터 주고 받을때 사용  : 키보드 , 파일처리 , JDBC , 네트워크 등등
+- 버퍼 : 특정 위치로 이동하는 동안 일시적으로 데이터를 보관하는 메모리 영역( 스트림 에서도 사용 )
+- Input : 자바 안으로 들어온 의미
+- Output : 자바 밖으로 나가는 의미
+
+- HTML 에서 첨부파일 입력받을때
+    1. HTML : <input type="file" class="bfile" />
+    2. JS : document.querySelector('.bfile').value
+    - "C:\fakepath\업로드한파일명"
+    -  JS는 유저(클라이언트)의 실제 파일 경로를 얻어낼수 없다. 브라우저 법/규칙
+
+- 업로드 : 파일 올리기
+    - 유저(클라이언트)PC/모바일 의 파일을 서버( 스프링 내장 톰캣 서버 ) 로 이동/복사
+    - 이동/복사
+        - 대용량 이동시에는 HTTP 는 바이트형식 만 지원
+- 다운로드 : 파일 내려받기
+
+
+1. 업로드 구현 방법
+    1. HTML : <form class="boardWriteForm">
+                <input type="file" class="bfile" />
+                </form>
+    2. FORM 전체 HTML 호출
+        JS : let boardWriteForm = document.querySelector('.boardWriteForm')
+    3. FORM 전체 HTML 를 바이트 로 변환해주는 기능이 담긴 객체로 변환
+        - new FormData()
+        JS : let boardWriteFormData = new FormData( boardWriteForm );
+
+    4. AJAX 대용량 폼 전송 필수 옵션 , HTTP contentType 의 Multipart/form 타입
+        - method : post
+        - data : boardWriteFormData
+        - contentType : false
+        - processData : false
+
+* HTML FORM 과 자바의 BoardDto 필드와 매핑 할때 주의할점
+    - HTML name 속성과 dto의 필드명 과 동일해야한다.
+    - FORMDATA 전송시 FORM안에 입력된 데이터(value)들을 식별할때는 name 속성의 이름으로 식별하기 때문이다.
+
+*. 자바에서 대용량 바이트의 타입
+    - MultipartFile 인터페이스 : Spring 제공하는 라이브러리
+        - 주로 대용량 바이트 파일을 매핑/조작 할때 사용되는 인터페이스
+    5. MultipartFile
+        1. 파일 이름 정의 , 중복배제한 식별 가능한 파일명 정의
+            String fileName = multipartFile.getOriginalFilename();
+            - UUID 조합
+                String uuid = UUID.randomUUID().toString();
+                fileName = uuid +"_"+ fileName.replaceAll( "_" , "-" );
+        2. 업로드 할 경로
+            1. 개발자 폴더 : "C:\\Users\\TJ-BU-703-강사PC\\Desktop\\tj_2024A_spring\\src\\main\\resources\\static\\upload\\";
+            2. 배포된 (톰캣)서버 폴더 : "C:\\Users\\TJ-BU-703-강사PC\\Desktop\\tj_2024A_spring\\build\\resources\\main\\static\\upload\\"
+        3. 업로드 , 바이트로 된 데이터를 해당 경로에 바이트를 파일로 생성
+            .transferTo(file);
+
+2. 다운로드 구현 방법
+    ----------- 다운로드 할 파일 읽어오기 ---------- 대상 : 파일
+    1. 다운로드 파일의 경로 설정
+        String downLoadPath = uploadPath + filename;
+        File file = new File( downLoadPath );
+    2. 해당 파일이 존재했을때 바이트로 읽기
+        [1] 파일 입력 스트림 객체 생성
+            FileInputStream fin = new FileInputStream( 파일경로 );
+        [2] 읽어온 바이트를 저장할 배열 생성
+            long fileSize = file.length();
+            byte[] bytes = new byte[ (int)fileSize ];
+        [3] 파일 입력 스트림 객체를 이용한 바이트 읽기
+             fin.read( bytes );
+        [4] 스트림 객체 (수동) 제거 , JVM 대신 해주지만. 안전하게 종료하는 방법
+            fin.close();
+    ------------ 읽어온 바이트를 내보내기 ---------- 대상 : HTTP 웹/앱
+    3. 배열에 저장된 바이트를 HTTP 로 응답하기
+        [1] HTTP 응답 객체
+            @Autowired private HttpServletResponse response;
+        [2] HTTP 응답 스트림 객체 호출
+            ServletOutputStream fout = response.getOutputStream();
+        [3] 출력할 배열을 내보내기
+            fout.write( bytes );
+        [4] 스트림 객체 저거
+            fout.close();
+    4. 브라우저의 다운로드 형식을 HTTP header(응답정보들이 들어있는곳) 보내주기.
+        response.setHeader( "Content-Disposition" ,
+            "attachment;filename="  + URLEncoder.encode( "다운로드 형식에 표시될 파일명" , "utf-8") );
+
+- File 클래스 : 해당 경로의 파일을 객체화 해서 다양한 메소드 제공
+    1. new File( 파일 경로 );   : 해당 경로의 파일 객체 생성
+    2. .exists() : 해당 경로의 파일이 존재하면 true 해당 경로의 파일이 없으면 false
+    3. .length() : 해당 경로의 파일이 존재하면 파일의 용량을 바이트 길이 단위 로 반환 [ 파일 용량 알기 ]
+    등등
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+example -> day07 -> todo -> 
+	- AppStart
+	- TodoController
+	- TodoDao
+	- TodoDto
+resources -> static ->
+	- todo.html
+	- todo.js
+	[ 1개월차 day12 -> 실습3.html / js 참고 ]
+==========================================
+DB 설계 -> DTO 클래스 설계 -> Dao db연동
+	1. controller -> dao 구현  (샘플 데이터를 이용한 Talend Api 테스트 진행  )  	
+	2. HTML -> JS(AJAX) 구현 
+제출 : 카카오톡에 ip주소 제출
+

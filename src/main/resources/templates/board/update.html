@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{ /header.html :: header }"></div>
+    <h3> 게시물 수정 페이지 </h3>
+    <div>
+        <div>  <select>
+                    <option value="1"> 자유 </option>
+                    <option value="2"> 노하우 </option>
+                    <option value="3"> 판매 </option>
+                </select>  </div>
+        <div> <input type="text"  /> </div>
+        <div>  <textarea> </textarea> </div>
+        <div>
+            <button type="button" onclick="doBoardUpdate( 현재게시물번호 )">삭제</button>
+        </div>
+    </div>
+
+    <script src="/js/board/update.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
+</body>
+</html>

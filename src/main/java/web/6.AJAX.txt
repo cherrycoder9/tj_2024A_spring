@@ -1,0 +1,55 @@
+AJAX
+    - JQUERY 라이브러리에서 만들어진 함수
+    - JQUERY : JS 기반의 라이브러리
+    - 설치 : HTML에 JQUERY 코드 등록
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    - 비동기 방식의 HTTP 기반 통신
+        - 비동기 : 요청후 응답이 올떄까지 다른 작업 수행
+        - 동기 : 요청후 응답이 올때까지 다른 작업을 대기 상태.
+    - 문법
+        1. $.ajax( 옵션 );
+        2. 옵션 = { 속성 : 값 , 속성 : 값 , 속성 : 값  }
+        - $.ajax( {
+            속성 : 값 ,
+            속성 : 값 ,
+            속성 : 값
+        })
+
+    - 속성
+        1. async : true
+            true : 기본값/생략시(비동기) , false : 동기
+        2. method : HTTP method 선택 ( GET , POST , PUT , DELETE )
+        3. url : HTTP URL 통신 경로
+            - 쿼리스트링 : url?key=value&key&value
+        4. data : { key : value , key : value }                  : HTTP 보낼 데이터
+        5. contentType : ""                                      : HTTP 보낼 데이터의 타입/형식 , 받는사람이 데이터를 받는 데이터를 처리하는 분류방식
+            - 일반폼 : ajax 에서는 contentType 생략시 일반폼으로 사용된다.
+                - content-type: application/x-www-form-urlencoded;
+            - 대용량폼 : ajax 에서는 폼 전송시 첨부파일(대용량) 타입은 multipart/form-data 활용된다.
+                - contentType : false
+                - processData : false
+            - contentType : "application/json"
+                - data : JSON.stringify( { } )
+
+        6. success : ( r ) => { }                               : 통신 성공 시 실행되는 함수 -> 응답 데이터가 함수의 매개변수로 받는다,
+        7. error : ( e ) => { }                                 : 통신 실패 시 실행되는 함수 -> 실패 사유가 함수의 매개변수로 받는다.
+
+        * 참고
+            HTTP 통신 필요한 이유 : HTTP는 문자열/바이트 데이터만 주고 받는다.
+            JSON.stringify( ) : JS 객체타입을 문자열타입 으로 변환
+                { key : value }  =>  "{ key : value }"
+            JSON.parse( )     : 문자열타입을 JS객체타입 으로 변환
+                "{ key : value }" => { key : value }
+
+
+
+
+
+
+
+
+
+
+
+
+

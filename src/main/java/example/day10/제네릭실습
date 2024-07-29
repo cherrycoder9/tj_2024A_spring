@@ -1,0 +1,32 @@
+배열을 이용한 가변길이 클래스 구현, 제네릭 활용
+- ArrayList 클래스 와 같은 구조의 클래스 만들기
+    - backend -> day09/step6 참고
+    구현할 메소드
+    - add( 저장할값 ) 함수 구현
+    - remove( 삭제할인덱스 ) 함수 구현
+    - get( 호출할인덱스 ) 함수 구현
+----------------------------------------------
+[ 샘플코드 ] 샘플과 다르게 작업 해도 됩니다.
+public class MyList < T > {
+    private int size;
+    private T[] array;
+    public MyList(){
+        this.array = (T[]) new Object[ this.size ];
+    }
+    public boolean add( T value ){
+        // 코드구현
+        return false;
+    }
+    public boolean remove( int index ){
+        // 코드구현
+        return false;
+    }
+    public T get( int index ){
+        // 코드구현
+        return null;
+    }
+}
+
+
+
+

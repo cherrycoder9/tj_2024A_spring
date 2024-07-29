@@ -1,0 +1,59 @@
+아파치(정적파일 서버) 톰캣(동적파일 서버)
+템플릿
+    - 정적 파일 : HTML, JS , CSS , IMG 등등
+        - 아파치 톰캣( 정적파일 )    : 순수한 파일 이므로 변환/렌더링 필요없다.
+            - 브라우저(크롬)은 HTML, JS , CSS , IMG  파일을 읽어드릴수 있고 HTTP로 이동할수 없다.
+        - Spring 정적파일 관리 : 프로젝트내 -> resources -> static
+        - Controller 매핑 필요없다. 파일의 경로/파일명이 해당 리소스/파일의 url 경로 자동설정 함
+
+    - 동적 파일 : JSP , *타임리프 , 머스테치 등등
+        - 아파치 톰캣( 동적파일 )    : jsp,타임리프,머스테치를 HTML로 변환/렌더링 필요하다.
+            - 브라우저(크롬)은 JSP,타임리프,머스테치 파일을 읽어드릴수 없고 HTTP로 이동할수 없다.
+            - 서버가 JSP,타임리프,머스테치(동적파일)들을 HTML 로 변환/렌더링 해서 응답하는 구조.
+        - Spring 동적파일 관리 : 프로젝트내 -> resources -> templates
+        - Controller 매핑 필요하다. 파일의 경로/파일명이 해당 리소스/파일의 url 경로 자동설정 안함
+        - HTML+JAVA 문법이 합쳐진 파일 -> HTTP 통신할때는 순수한 HTML로 렌더링 해야한다.
+
+타임리프 :
+    - 서버의 자원(데이터) 통신은 JS 를 사용하기 때문에 종류는 상관없다.
+    - 타임리프 디펜더시 추가
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    - 타임리프 의 확장자는 .html
+    - 강의에서 타임리프 사용하는 이유 : 레이아웃
+
+타임리프 레이아웃
+    templates
+        - member 패키지/폴더
+            - signup.html : 회원가입 페이지
+            - login.html : 로그인 페이지
+        - header.html : 헤더페이지
+        - index.html : 메인페이지
+        - footer.html : 푸터페이지
+
+
+
+타임리프 레이아웃 문법
+    [1] 다른파일(html)에서 사용할 구역에 플러그 정의
+        <마크업 th:fragment="플러그명"> </마크업>
+        header.html ---> <body th:fragment="header">
+
+    [2] 해당파일(html) 에서 다른파일(html)의 플러그 불러오기
+        <마크업 th:replace="~{ 불러올파일경로 :: 플러그명 }" ></마크업>
+        index.html  ---> <div th:replace="~{ /header.html :: header }"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

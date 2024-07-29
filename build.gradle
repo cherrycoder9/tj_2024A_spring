@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.7'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // [1] SPRINGBOOT WEB 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // [2] MYSQL 라이브러리
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // [3] .jsp 템플릿 라이브러리
+    // implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+
+    // [4] 타임리프 템플릿 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // [5] 롬복 라이브러리
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // [6] 자바 메일 전송 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
