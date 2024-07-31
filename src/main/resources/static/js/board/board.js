@@ -1,3 +1,5 @@
+// src/main/resources/static/js/board/board.js
+
 console.log("board.js");
 
 // * 페이지 정보들을 관리하는 객체, 전역변수
