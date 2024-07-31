@@ -1,0 +1,110 @@
+/* src/main/resources/static/css/board/view.css */
+
+/* 외부 웹 폰트: SUIT-Regular */
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전체 적용 폰트 */
+body {
+    font-family: 'SUIT-Regular', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* 컨테이너 설정 */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 스타일 */
+.bTitle {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* 카테고리 및 기타 정보 */
+.bcName {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.etcBox {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* 내용 스타일 */
+.bContent {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* 첨부파일 스타일 */
+.bFile {
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.bFile a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.bFile a:hover {
+    text-decoration: underline;
+}
+
+/* 링크 스타일 초기화 */
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a.btitle {
+    color: #333;
+    /* 제목 링크 색상 */
+    text-decoration: none;
+    /* 기본 밑줄 제거 */
+}
+
+a.btitle:hover {
+    color: #007bff;
+    /* 마우스 오버 시 색상 변경 */
+    text-decoration: underline;
+    /* 마우스 오버 시 밑줄 추가 */
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .bTitle {
+        font-size: 1.5em;
+    }
+
+    .bcName,
+    .etcBox,
+    .bContent,
+    .bFile {
+        font-size: 1em;
+    }
+}
