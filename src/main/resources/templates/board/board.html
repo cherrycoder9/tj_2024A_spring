@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .categoryActive {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,18 +18,11 @@
         <h3> 카테고리 커뮤니티 </h3>
         <a href="/board/write">글쓰기</a>
 
-        <div style="display: flex;">
-            <div style="width:50px" onclick="doBoardFindAll(1,0)">전체보기</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,1)">자유</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,2)">노하우</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,3)">판매</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,4)">구매</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,5)">공지사항</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,6)">질문답변</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,7)">구인</div>
-            <div style="width:50px" onclick="doBoardFindAll(1,8)">구직</div>
+        <!-- 카테고리 구역 -->
+        <div class="categoryBox" style="display: flex;">
         </div>
 
+        <!-- 글 표시 구역 -->
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -39,10 +38,25 @@
             </tbody>
         </table>
 
+        <!-- 페이지 구역 -->
         <nav aria-label="Page navigation example">
             <ul class="pagination">
             </ul>
         </nav>
+
+        <!-- 검색 구역 -->
+        <div>
+            <!-- value: select 에서 선택된 항목의 값, SQL 검색시 사용되는 필드명 -->
+            <select class="searchKey">
+                <option value="btitle">제목</option>
+                <option value="bcontent">내용</option>
+                <option value="id">작성자</option>
+            </select>
+            <!-- SQL 조회 할때 사용되는 필드의 값 -->
+            <input class="searchKeyword" type="text" />
+            <button type="button" onclick="onSearch()">검색</button>
+        </div>
+
     </div>
     <script src="/js/board/board.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>

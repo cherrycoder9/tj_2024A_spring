@@ -71,8 +71,12 @@ public class BoardService {
         // 2. 페이지당 게시물을 출력할 시작레코드 번호
         final int startRow = (pageDto.getPage() - 1) * pageBoardSize;
 
-        // 4. 전체 게시물 수 : 조건추가) 카테고리번호 별
-        final int totalBoardSize = boardDao.getTotalBoardSize(pageDto.getBcno());
+        // 4. 전체 게시물 수 : 조건추가) 카테고리번호 별, 조건추가) 검색 조건
+        final int totalBoardSize = boardDao.getTotalBoardSize(
+                pageDto.getBcno(),
+                pageDto.getSearchKey(),
+                pageDto.getSearchKeyword()
+        );
         // 3. totalPage : 전체 페이지수 구하기
         // 총 페이지수 계산식 : 전체 게시물수 / 페이지당 게시물수
         /*
@@ -113,10 +117,16 @@ public class BoardService {
             endBtn = totalPage;
         }
 
-        // 게시물 정보 조회: 조건추가1) 페이징처리, 조건추가2)카테고리별
-        final List<BoardDto> data = boardDao.bFindAll(startRow, pageBoardSize, pageDto.getBcno());
+        // 6. 게시물 정보 조회: 조건추가1) 페이징처리, 조건추가2)카테고리별
+        final List<BoardDto> data = boardDao.bFindAll(
+                startRow,
+                pageBoardSize,
+                pageDto.getBcno(),
+                pageDto.getSearchKey(),
+                pageDto.getSearchKeyword()
+        );
 
-        // 반환 객체 구성
+        // 7. 반환 객체 구성
         final BoardPageDto boardPageDto = BoardPageDto.builder()
                 .page(pageDto.getPage())
                 .totalBoardSize(totalBoardSize)
@@ -132,6 +142,7 @@ public class BoardService {
 
     // 4. 게시물 개별 조회 처리
     public BoardDto bFindBno(final int bno) {
+        boardDao.bViewIncrease(bno);
         return boardDao.bFindBno(bno);
     }
 

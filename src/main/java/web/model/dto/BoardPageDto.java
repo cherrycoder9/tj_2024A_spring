@@ -20,4 +20,7 @@ public class BoardPageDto {
     private int startBtn; // 5. 페이지별 시작버튼 번호
     private int endBtn; // 6. 페이지별 끝버튼 번호
     private int bcno; // 7. 현재 카테고리 번호
+    // 검색 필드
+    private String searchKey;
+    private String searchKeyword;
 }
