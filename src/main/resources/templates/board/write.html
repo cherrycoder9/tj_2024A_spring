@@ -15,21 +15,33 @@
 
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
-    <div class="container">
-        <h3> 게시물 쓰기 페이지 </h3>
+    <div class="container mt-5">
+        <h3 class="mb-4">게시물 쓰기 페이지</h3>
         <form class="boardWriteForm">
-
-            <div style="margin : 10px 0px; display:flex">
-                <select name="bcno" class="categoryBox form-select" style="width:10%">
-                    <option value="카테고리번호FK"> 카테고리이름 </option>
+            <div class="form-group mb-3">
+                <label for="categorySelect">카테고리</label>
+                <select name="bcno" id="categorySelect" class="form-select categoryBox">
+                    <option value="카테고리번호FK">카테고리이름</option>
+                    <!-- 실제 카테고리 옵션들이 서버에서 동적으로 채워집니다. -->
                 </select>
-                <input type="text" name="btitle" class="btitle form-control" placeholder="제목" />
             </div>
 
-            <div><textarea id="summernote" name="bcontent" class="bcontent"></textarea></div>
+            <div class="form-group mb-3">
+                <label for="postTitle">제목</label>
+                <input type="text" name="btitle" class="form-control btitle" id="postTitle" placeholder="제목을 입력하세요">
+            </div>
 
-            <div> 첨부파일 <input type="file" name="uploadFile" class="bfile" /> </div>
-            <button type="button" onclick="doBoardWrite()">글쓰기</button>
+            <div class="form-group mb-3">
+                <label for="summernote">내용</label>
+                <textarea id="summernote" name="bcontent" class="form-control bcontent"></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="uploadFile">첨부파일</label>
+                <input type="file" name="uploadFile" class="form-control-file bfile" id="uploadFile">
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="doBoardWrite()">글쓰기</button>
         </form>
     </div>
 
@@ -37,6 +49,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
     <!-- 2. 썸머노트 한글 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                height: 300,                 // 에디터 높이
+                lang: 'ko-KR',               // 한글 설정
+                placeholder: '내용을 입력하세요'
+            });
+        });
+    </script>
 
     <script src="/js/board/write.js"></script>
 

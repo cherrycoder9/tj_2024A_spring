@@ -1,37 +1,64 @@
+<!-- src/main/resources/templates/member/signup.html -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
 
-    회원가입 페이지
-    <form>
-        아이디 : <input  onkeyup="idCheck()"  id="id"/>
-        <div class="idCheckBox"></div>
+    <div class="container mt-5">
+        <h2 class="mb-4">회원가입</h2>
+        <form>
+            <div class="form-group">
+                <label for="id">아이디</label>
+                <input type="text" class="form-control" id="id" onkeyup="idCheck()" placeholder="아이디를 입력하세요">
+                <div class="idCheckBox text-danger mt-2"></div>
+            </div>
 
-        비밀번호 : <input  onkeyup="pwCheck()"  id="pw" type="password" /> <br/>
-        비밀번호 확인 : <input  onkeyup="pwCheck()"  id="pwConfirm" type="password" />
-        <div class="pwCheckBox"> </div>
+            <div class="form-group">
+                <label for="pw">비밀번호</label>
+                <input type="password" class="form-control" id="pw" onkeyup="pwCheck()" placeholder="비밀번호를 입력하세요">
+            </div>
 
-        이름 : <input onkeyup="nameCheck()" id="name"/>
-        <div class="nameCheckBox"></div>
+            <div class="form-group">
+                <label for="pwConfirm">비밀번호 확인</label>
+                <input type="password" class="form-control" id="pwConfirm" onkeyup="pwCheck()"
+                    placeholder="비밀번호를 다시 입력하세요">
+                <div class="pwCheckBox text-danger mt-2"></div>
+            </div>
 
-        연락처 : <input onkeyup="phoneCheck()" id="phone"/>
-        <div class="phoneCheckBox"></div>
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" onkeyup="nameCheck()" placeholder="이름을 입력하세요">
+                <div class="nameCheckBox text-danger mt-2"></div>
+            </div>
 
-        이메일 : <input onkeyup="emailCheck()" id = "email"/>
-        <button class="authBtn" type="button" onclick="doAuth()" disabled > 인증요청 </button>
-        <div class="authBox"></div>
-        <div class="emailCheckBox"></div>
+            <div class="form-group">
+                <label for="phone">연락처</label>
+                <input type="text" class="form-control" id="phone" onkeyup="phoneCheck()" placeholder="연락처를 입력하세요">
+                <div class="phoneCheckBox text-danger mt-2"></div>
+            </div>
 
-        <button type="button" onclick="doSignup()">회원가입</button>
-    </form>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" class="form-control" id="email" onkeyup="emailCheck()" placeholder="이메일을 입력하세요">
+                <button class="btn btn-primary mt-2" type="button" onclick="doAuth()" disabled>인증요청</button>
+                <div class="authBox mt-2"></div>
+                <div class="emailCheckBox text-danger mt-2"></div>
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="doSignup()">회원가입</button>
+        </form>
+    </div>
 
     <script src="/js/member/signup.js"></script>
 
     <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
+
 </html>

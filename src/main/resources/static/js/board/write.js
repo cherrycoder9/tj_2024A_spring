@@ -2,6 +2,17 @@
 
 console.log("write.js");
 
+$.ajax({
+    method: "get",
+    url: "/member/login/check",
+    success: (r) => {
+        if (r == '') {
+            location.href = "/member/login";
+        }
+        console.log(r);
+    }
+});
+
 checkLogin();
 // 글쓰기 페이지 접근 시 로그인 여부 체크
 function checkLogin() {

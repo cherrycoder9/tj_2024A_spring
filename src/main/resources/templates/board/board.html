@@ -16,49 +16,53 @@
 
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
-    <div class="container">
-        <h3> 카테고리 커뮤니티 </h3>
-        <a href="/board/write">글쓰기</a>
+    <div class="container mt-5">
+        <h3 class="mb-4">카테고리 커뮤니티</h3>
+
+        <div class="d-flex justify-content-end mb-4">
+            <a class="btn btn-primary" href="/board/write">글쓰기</a>
+        </div>
 
         <!-- 카테고리 구역 -->
-        <div class="categoryBox" style="display: flex;">
+        <div class="categoryBox mb-4" style="display: flex; flex-wrap: wrap;">
+            <!-- 카테고리 버튼들이 여기에 동적으로 추가됩니다. -->
         </div>
 
         <!-- 글 표시 구역 -->
         <table class="table table-hover">
-            <thead>
+            <thead class="table-dark">
                 <tr>
-                    <th style="width:5%"> 번호 </th>
-                    <th style="width:60%"> 제목 </th>
-                    <th style="width:15%"> 작성자 </th>
-                    <th style="width:15%"> 작성일 </th>
-                    <th style="width:5%"> 조회수 </th>
+                    <th style="width:8%">번호</th>
+                    <th style="width:52%">제목</th>
+                    <th style="width:12%">작성자</th>
+                    <th style="width:20%">작성일</th>
+                    <th style="width:8%">조회수</th>
                 </tr>
             </thead>
             <tbody class="boardBody">
-
+                <!-- 게시글 데이터가 여기에 동적으로 추가됩니다. -->
             </tbody>
         </table>
 
         <!-- 페이지 구역 -->
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination">
+                <!-- 페이지 번호 버튼들이 여기에 동적으로 추가됩니다. -->
             </ul>
         </nav>
 
         <!-- 검색 구역 -->
-        <div>
-            <!-- value: select 에서 선택된 항목의 값, SQL 검색시 사용되는 필드명 -->
-            <select class="searchKey">
+        <div class="input-group mt-4">
+            <select class="custom-select searchKey" aria-label="검색 필드 선택">
                 <option value="btitle">제목</option>
                 <option value="bcontent">내용</option>
                 <option value="id">작성자</option>
             </select>
-            <!-- SQL 조회 할때 사용되는 필드의 값 -->
-            <input class="searchKeyword" type="text" />
-            <button type="button" onclick="onSearch()">검색</button>
+            <input class="form-control searchKeyword" type="text" placeholder="검색어를 입력하세요">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" onclick="onSearch()">검색</button>
+            </div>
         </div>
-
     </div>
     <script src="/js/board/board.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>

@@ -1,45 +1,89 @@
+/* src/main/resources/static/css/header.css */
 
-/* 0. 외부 웹 폰트 : 눈누 홈페이지 */
+/* 외부 웹 폰트 : 눈누 홈페이지 */
 @font-face {
-    font-family: 'Ownglyph_UNZ-Rg'; /* 온글잎 언즈체 */
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/Ownglyph_UNZ-Rg.woff2') format('woff2');
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
-/* 1. 공통 CSS */
-*{
-    padding : 0px; margin : 0px; /* 여백제거*/
-    list-style-type : none; /*글머리 제거 */
-    box-sizing : border-box; /* 구역 사이즈 기준 */
-    color : black;
-    font-size : 16px;
-    font-family: 'Ownglyph_UNZ-Rg'; /* 웹 폰트 적용 */
+
+/* 전체 적용 폰트 */
+body,
+.navbar,
+.navbar-brand,
+.nav-item,
+.nav-link {
+    font-family: 'SUIT-Regular', Arial, sans-serif;
 }
-a{ text-decoration : none; color : black; }
 
-/* 2. 헤더 메뉴 구역 */
-.topMenu{
-    display : flex;
-    justify-content : space-between;
+a {
+    color: black;
+    text-decoration: none;
 }
-/* 3. 메인 메뉴 */
-#mainMenu{  display : flex;  margin : 0px; }
-#mainMenu > li { margin : 0px 25px; font-size : 20px; }
 
-/* 4. 로그인 관련 메뉴 */
-#loginMenu{ display : flex; margin : 0px; }
-#loginMenu > li { margin : 0px 10px; }
+/* 네비게이션 바 스타일 */
+.navbar {
+    background-color: #343a40;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
 
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5em;
+    text-decoration: none;
+}
 
+.navbar-brand:hover {
+    color: #ccc;
+}
 
+#navbarSupportedContent {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center
+}
 
+#mainMenu,
+#loginMenu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+    display: flex;
+    gap: 30px;
+    /* 메뉴 항목 간격 */
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
 
+.nav-item {
+    display: inline;
+}
 
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
 
+.nav-link:hover {
+    border-radius: 5px;
+}
 
+/* 모바일 대응 */
+.navbar-toggler {
+    background-color: #fff;
+    border: none;
+}
 
-
-
-
-
-
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path stroke="rgba(0, 0, 0, 0.5)" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+}

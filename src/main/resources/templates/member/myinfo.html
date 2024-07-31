@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 
     <div th:replace="~{ /header.html :: header }"></div>
-    마이 페이지
-    <div id="myInfoBox">
+    <div class="container mt-5">
+        <h2 class="mb-4">마이 페이지</h2>
+        <div id="myInfoBox" class="border p-4 mb-4">
+            <!-- 사용자 정보가 표시될 영역 -->
+        </div>
 
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-warning" onclick="location.href='/member/update'">정보수정</button>
+            <button type="button" class="btn btn-danger" onclick="location.href='/member/leave'">탈퇴</button>
+        </div>
     </div>
-
-    <button type="button" onclick="location.href='/member/update'"> 정보수정 </button>
-    <button type="button" onclick="location.href='/member/leave'"> 탈퇴 </button>
 
     <script src="/js/member/myinfo.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>
 
 </body>
+
 </html>

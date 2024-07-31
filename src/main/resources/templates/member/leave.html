@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
-    탈퇴 페이지
-    <div>
-        <h3> 탈퇴 처리 할까요? </h3>
-        확인비밀번호 : <input class="pwConfirm" type="text"/>
-        <button onclick="doLeave()" type="button">확인</button>
+    <div class="container mt-5">
+        <h3 class="mb-4">탈퇴 처리 할까요?</h3>
+        <div class="form-group">
+            <label for="pwConfirm">확인 비밀번호</label>
+            <input type="password" class="form-control pwConfirm" id="pwConfirm" placeholder="비밀번호를 입력하세요">
+        </div>
+        <button type="button" class="btn btn-danger" onclick="doLeave()">확인</button>
     </div>
     <script src="/js/member/leave.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
+
 </html>

@@ -24,16 +24,32 @@ function doBoardFindBno(bno) {
         url: "/board/find/bno", data: { bno: bno },
         success: r => { console.log(r); board = r; } // 응답 받은 데이터을 ajax 밖 변수에 대입
     }); // AJAX END
-    document.querySelector('.bcName').innerHTML = `${board.bcname}`;
-    document.querySelector('.etcBox').innerHTML = `${board.id} / ${board.bview} / ${board.bdate}`;
-    document.querySelector('.bTitle').innerHTML = `${board.btitle}`;
-    document.querySelector('.bContent').innerHTML = `${board.bcontent}`;
+
+    // 카테고리명 출력
+    document.querySelector('.bcName').innerHTML = `<span class="badge bg-primary">${board.bcname}</span>`;
+
+    // 작성자, 조회수, 작성일 출력
+    document.querySelector('.etcBox').innerHTML = `
+        <div class="text-muted">${board.id}</div>
+        <div class="text-muted">조회수: ${board.bview}</div>
+        <div class="text-muted">${board.bdate}</div>
+    `;
+
+    // 제목 출력
+    document.querySelector('.bTitle').innerHTML = `<h4>${board.btitle}</h4>`;
+
+    // 내용 출력
+    document.querySelector('.bContent').innerHTML = `<p>${board.bcontent}</p>`;
+
+    // 첨부파일 출력
     document.querySelector('.bFile').innerHTML = board.bfile ?
-        `${board.bfile} <a href="/file/download?filename=${board.bfile}">다운로드</a>` :
-        "첨부파일 없음";
-    document.querySelector('.btnBox').innerHTML =
-        `
-            <button type="button" onclick="location.href='/board/update?bno=${bno}'">수정</button>
-            <button type="button" onclick="doBoardDelete(${bno})">삭제</button>
-            `;
+        `<div class="mt-3"><span class="text-info">${board.bfile.split('_').pop()}</span> 
+        <a class="btn btn-sm btn-outline-primary" href="/file/download?filename=${board.bfile}">다운로드</a></div>` :
+        "<div class='mt-3 text-muted'>첨부파일 없음</div>";
+
+    // 버튼 출력
+    document.querySelector('.btnBox').innerHTML = `
+        <button type="button" class="btn btn-warning" onclick="location.href='/board/update?bno=${bno}'">수정</button>
+        <button type="button" class="btn btn-danger" onclick="doBoardDelete(${bno})">삭제</button>
+    `;
 }

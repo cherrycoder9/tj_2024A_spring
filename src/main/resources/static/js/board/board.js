@@ -43,7 +43,7 @@ function getCategory() {
     let categoryBox = document.querySelector('.categoryBox');
 
     // 2. 무엇을 
-    let html = `<div class="${pageInfo.bcno == 0 ? 'categoryActive' : ''}" style="width:50px" onclick="onCategory(0)">전체보기</div>`;
+    let html = `<div class="${pageInfo.bcno == 0 ? 'categoryActive' : ''}" style="margin-right: 30px" onclick="onCategory(0)">전체보기</div>`;
     $.ajax({
         async: false,
         method: "get",
@@ -51,7 +51,7 @@ function getCategory() {
         success: r => {
             console.log(r);
             r.forEach(c => {
-                html += `<div class="${pageInfo.bcno == c.bcno ? 'categoryActive' : ''}" style = "width:50px" onclick="onCategory(${c.bcno})">${c.bcname}</div>`;
+                html += `<div class="${pageInfo.bcno == c.bcno ? 'categoryActive' : ''}" style="margin-right: 30px" onclick="onCategory(${c.bcno})">${c.bcname}</div>`;
             });
         },
         error: e => {

@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
-    <h3> 게시물 수정 페이지 </h3>
-    <div>
-        <div>  <select>
-                    <option value="1"> 자유 </option>
-                    <option value="2"> 노하우 </option>
-                    <option value="3"> 판매 </option>
-                </select>  </div>
-        <div> <input type="text"  /> </div>
-        <div>  <textarea> </textarea> </div>
-        <div>
-            <button type="button" onclick="doBoardUpdate( 현재게시물번호 )">삭제</button>
-        </div>
+    <div class="container mt-5">
+        <h3 class="mb-4">게시물 수정 페이지</h3>
+        <form>
+            <div class="form-group">
+                <label for="categorySelect">카테고리 선택</label>
+                <select id="categorySelect" class="form-control">
+                    <option value="1">자유</option>
+                    <option value="2">노하우</option>
+                    <option value="3">판매</option>
+                    <!-- 더 많은 옵션 추가 가능 -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="postTitle">제목</label>
+                <input type="text" class="form-control" id="postTitle" placeholder="제목을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label for="postContent">내용</label>
+                <textarea id="postContent" class="form-control" rows="5" placeholder="내용을 입력하세요"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary" onclick="doBoardUpdate(현재게시물번호)">수정</button>
+                <button type="button" class="btn btn-danger" onclick="doBoardDelete(현재게시물번호)">삭제</button>
+            </div>
+        </form>
     </div>
 
     <script src="/js/board/update.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
+
 </html>
