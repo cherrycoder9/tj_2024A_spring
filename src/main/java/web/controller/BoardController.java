@@ -82,6 +82,12 @@ public class BoardController {
         // 전체 리소스를 업데이트하거나, 리소스가 존재하지 않으면 새롭게 생성
         // 멱등성 연산: 동일한 연산을 여러 번 적용하더라도 결과가 달라지지 않는 성질을 의미
     }
+
+    // 6. 게시물에 달린 댓글 출력 처리 컨트롤러 (Map 자료형 사용)
+    @GetMapping("/reply/list")
+    public List<Map<String, String>> bReplyList(final int bno) {
+        return boardService.bReplyList(bno);
+    }
 }
 
 

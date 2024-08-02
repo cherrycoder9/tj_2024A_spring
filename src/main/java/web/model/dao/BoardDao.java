@@ -239,6 +239,36 @@ public class BoardDao extends Dao {
         return false; // ??? 왜 true/false를 넣는건지
         // 댓글 쓰기 작업의 성공 여부를 나타내기 위해
     }
+
+    // 6. 게시물에 달린 댓글 출력 처리 Dao (Map 자료형 사용)
+    public List<Map<String, String>> bReplyList(final int bno) {
+        System.out.println("BoardDao.bReplyList");
+        try {
+            final String sql = "SELECT br.*, m.name " +
+                    "FROM breply br " +
+                    "JOIN member m ON br.no = m.no " +
+                    "WHERE br.bno = ? " +
+                    "ORDER BY br.brindex DESC";
+            final PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bno);
+            final ResultSet rs = ps.executeQuery();
+
+            final List<Map<String, String>> list = new ArrayList<>();
+
+            while (rs.next()) {
+                final Map<String, String> map = new HashMap<>();
+                map.put("brdate", rs.getString("brdate"));
+                map.put("brcontent", rs.getString("brcontent"));
+                map.put("name", rs.getString("name")); // 댓글 작성자의 이름 추가
+                list.add(map);
+            }
+            return list;
+        } catch (final Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
 }
 
 

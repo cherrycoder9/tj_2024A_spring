@@ -180,6 +180,11 @@ public class BoardService {
         // 비즈니스 로직과 데이터 접근 로직을 분리하여 코드의 유지보수성과 확장성을 높이기 위해 사용
     }
 
+    // 6. 게시물에 달린 댓글 출력 처리 Service (Map 자료형 사용)
+    public List<Map<String, String>> bReplyList(final int bno) {
+        return boardDao.bReplyList(bno);
+    }
+
 }
 
 

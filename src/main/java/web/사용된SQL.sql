@@ -324,3 +324,6 @@ create table breply
     foreign key (no) references member (no) on update cascade on delete cascade,
     foreign key (bno) references board (bno) on update cascade on delete cascade
 );
+
+select *
+from breply;

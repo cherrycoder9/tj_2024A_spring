@@ -87,3 +87,27 @@ function onReplyWrite() {
         } // End of success
     }); // End of AJAX
 }; // onReplyWrite END
+
+onReplyList();
+// 3. 게시판에 달린 댓글 전부 출력하기. 자바 백엔드에서 List<Map<String, String>> 반환 
+function onReplyList() {
+    console.log("onReplyList()");
+    $.ajax({
+        method: "get",
+        url: "/board/reply/list",
+        data: { bno: bno },
+        success: r => {
+            console.log(r);
+            let html = ``;
+            r.forEach(data => {
+                console.log(data);
+                html += `<tr>
+                        <td>${data.name}</td>
+                        <td>${data.brcontent}</td>
+                        <td>${data.brdate}</td>
+                    </tr>`;
+            });
+            document.querySelector('.replyTbody').innerHTML = html;
+        }
+    }); // End of AJAX
+}; // onReplyList END

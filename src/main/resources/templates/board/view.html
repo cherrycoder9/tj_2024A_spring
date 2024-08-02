@@ -30,10 +30,27 @@
             <button class="btn btn-danger">삭제</button>
         </div>
 
+        <!-- 댓글 등록 구역 -->
         <div class="mt-4">
             <textarea class="form-control brcontent" rows="3" placeholder="댓글을 입력하세요"></textarea>
             <button type="button" class="btn btn-success mt-2" onclick="onReplyWrite()">댓글등록</button>
         </div>
+
+        <!-- 댓글 출력 구역 -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>작성자</th>
+                    <th>댓글</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody class="replyTbody">
+                <!-- 댓글 구역 -->
+            </tbody>
+        </table>
+
+    </div>
     </div>
 
     <div th:replace="~{ /footer.html :: footer }"></div>
