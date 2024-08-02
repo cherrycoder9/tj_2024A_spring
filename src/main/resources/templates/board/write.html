@@ -4,65 +4,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- 해당 페이지에서만 사용할 CSS  -->
-    <!-- 1. 썸머노트 CSS , 부트스트랩 버전과 썸머노트 버전  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
+	<meta charset="UTF-8">
+	<title>Title</title>
+	
+	<!-- 해당 페이지에서만 사용할 CSS  -->
+	<!-- 1. 썸머노트 CSS , 부트스트랩 버전과 썸머노트 버전  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
 
 </head>
 
 <body>
-    <div th:replace="~{ /header.html :: header }"></div>
-    <div class="container mt-5">
-        <h3 class="mb-4">게시물 쓰기 페이지</h3>
-        <form class="boardWriteForm">
-            <div class="form-group mb-3">
-                <label for="categorySelect">카테고리</label>
-                <select name="bcno" id="categorySelect" class="form-select categoryBox">
-                    <option value="카테고리번호FK">카테고리이름</option>
-                    <!-- 실제 카테고리 옵션들이 서버에서 동적으로 채워집니다. -->
-                </select>
-            </div>
+<div th:replace="~{ /header.html :: header }"></div>
+<div class="container mt-5">
+	<h3 class="mb-4">게시물 쓰기 페이지</h3>
+	<form class="boardWriteForm">
+		<div class="form-group mb-3">
+			<label for="categorySelect">카테고리</label>
+			<select name="bcno" id="categorySelect" class="form-select categoryBox">
+				<option value="카테고리번호FK">카테고리이름</option>
+				<!-- 실제 카테고리 옵션들이 서버에서 동적으로 채워짐 -->
+			</select>
+		</div>
+		
+		<div class="form-group mb-3">
+			<label for="postTitle">제목</label>
+			<input type="text" name="btitle" class="form-control btitle" id="postTitle" placeholder="제목을 입력하세요">
+		</div>
+		
+		<div class="form-group mb-3">
+			<label for="summernote">내용</label>
+			<textarea id="summernote" name="bcontent" class="form-control bcontent"></textarea>
+		</div>
+		
+		<div class="form-group mb-3">
+			<label for="uploadFile">첨부파일</label>
+			<input type="file" name="uploadFile" class="form-control-file bfile" id="uploadFile">
+		</div>
+		
+		<button type="button" class="btn btn-primary" onclick="doBoardWrite()">글쓰기</button>
+	</form>
+</div>
 
-            <div class="form-group mb-3">
-                <label for="postTitle">제목</label>
-                <input type="text" name="btitle" class="form-control btitle" id="postTitle" placeholder="제목을 입력하세요">
-            </div>
+<!-- 1. 썸머노트 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+<!-- 2. 썸머노트 한글 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"></script>
 
-            <div class="form-group mb-3">
-                <label for="summernote">내용</label>
-                <textarea id="summernote" name="bcontent" class="form-control bcontent"></textarea>
-            </div>
+<script>
+	$(document).ready(function () {
+		$('#summernote').summernote({
+			height: 300,                 // 에디터 높이
+			lang: 'ko-KR',               // 한글 설정
+			placeholder: '내용을 입력하세요'
+		});
+	});
+</script>
 
-            <div class="form-group mb-3">
-                <label for="uploadFile">첨부파일</label>
-                <input type="file" name="uploadFile" class="form-control-file bfile" id="uploadFile">
-            </div>
+<script src="/js/board/write.js"></script>
 
-            <button type="button" class="btn btn-primary" onclick="doBoardWrite()">글쓰기</button>
-        </form>
-    </div>
-
-    <!-- 1. 썸머노트 JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
-    <!-- 2. 썸머노트 한글 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                height: 300,                 // 에디터 높이
-                lang: 'ko-KR',               // 한글 설정
-                placeholder: '내용을 입력하세요'
-            });
-        });
-    </script>
-
-    <script src="/js/board/write.js"></script>
-
-    <div th:replace="~{ /footer.html :: footer }"></div>
+<div th:replace="~{ /footer.html :: footer }"></div>
 </body>
 
 </html>
