@@ -40,27 +40,32 @@
                 </tr>
             </thead>
             <tbody class="boardBody">
-                <!-- 게시글 데이터가 여기에 동적으로 추가됩니다. -->
+                <!-- 게시글 데이터 동적으로 추가 -->
             </tbody>
         </table>
 
         <!-- 페이지 구역 -->
         <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination">
-                <!-- 페이지 번호 버튼들이 여기에 동적으로 추가됩니다. -->
+                <!-- 페이지 번호 버튼들 동적으로 추가 -->
             </ul>
         </nav>
 
         <!-- 검색 구역 -->
-        <div class="input-group mt-4">
-            <select class="custom-select searchKey" aria-label="검색 필드 선택">
-                <option value="btitle">제목</option>
-                <option value="bcontent">내용</option>
-                <option value="id">작성자</option>
-            </select>
-            <input class="form-control searchKeyword" type="text" placeholder="검색어를 입력하세요">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" onclick="onSearch()">검색</button>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="input-group">
+                    <select class="form-select searchKey" style="width: auto; flex: 0 0 auto;">
+                        <option selected disabled>카테고리 선택</option>
+                        <option value="btitle">제목</option>
+                        <option value="bcontent">내용</option>
+                        <option value="id">작성자</option>
+                    </select>
+                    <input type="text" class="form-control searchKeyword" placeholder="검색어를 입력하세요" aria-label="검색어 입력">
+                    <button class="btn btn-outline-secondary" type="button" onclick="onSearch()">
+                        검색
+                    </button>
+                </div>
             </div>
         </div>
     </div>

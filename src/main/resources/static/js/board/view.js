@@ -2,6 +2,9 @@
 
 console.log("view.js() ");
 
+// 2. 댓글 쓰기
+
+
 // board.js 에서 view 페이지 이동 코드  <th> <a href="/board/view?bno=${ b.bno }">${ b.btitle }</a>
 // JS 코드가 HTML 를 만들어내고 사용자는 표현된 HTML 에서 a 클릭이벤트
 // <a href="/board/view?bno=3">안녕하세요</a>    ---> /board/view?bno=3
@@ -17,12 +20,16 @@ let bno = new URL(location.href).searchParams.get('bno'); // 현재 URL 경로�
 console.log(bno);
 // 1. 개별 게시물 출력 , 매개변수는 현재 게시물의 번호
 doBoardFindBno(bno);
+
 function doBoardFindBno(bno) {
     let board = {};
     $.ajax({ // AJAX
         async: false, method: "get",
         url: "/board/find/bno", data: { bno: bno },
-        success: r => { console.log(r); board = r; } // 응답 받은 데이터을 ajax 밖 변수에 대입
+        success: r => {
+            console.log(r);
+            board = r;
+        } // 응답 받은 데이터을 ajax 밖 변수에 대입
     }); // AJAX END
 
     // 카테고리명 출력
@@ -52,4 +59,31 @@ function doBoardFindBno(bno) {
         <button type="button" class="btn btn-warning" onclick="location.href='/board/update?bno=${bno}'">수정</button>
         <button type="button" class="btn btn-danger" onclick="doBoardDelete(${bno})">삭제</button>
     `;
-}
+} // doBoardFindBno END
+
+// 2. 댓글 쓰기 
+function onReplyWrite() {
+    console.log("onReplyWrite()");
+
+    // 1.  
+    let brcontent = document.querySelector('.brcontent').value;
+    console.log(brcontent);
+
+    let = info = { brcontent: brcontent, brindex: 0, bno: bno };
+    $.ajax({
+        async: false,
+        method: "post",
+        url: "/board/reply/write",
+        data: JSON.stringify(info),
+        contentType: "application/json",
+        success: r => {
+            console.log(r);
+            if (r == true) {
+                alert('댓글쓰기 성공');
+                document.querySelector('.brcontent').value = ``;
+            } else {
+                alert('댓글쓰기 실패: 로그인해주세요.');
+            }
+        } // End of success
+    }); // End of AJAX
+}; // onReplyWrite END

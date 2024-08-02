@@ -1,0 +1,27 @@
+POST http://localhost:8080/board/reply/write
+Content-Type: application/json
+Content-Length: 2
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2 RC
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=7611A7CF3922E7306CD611EDC9090B4F
+
+""
+
+<> 2024-08-02T121245.200.json
+
+###
+
+POST http://localhost:8080/board/reply/write
+Content-Type: application/json
+Content-Length: 2
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2 RC
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+""
+
+<> 2024-08-02T120329.200.json
+
+###
+

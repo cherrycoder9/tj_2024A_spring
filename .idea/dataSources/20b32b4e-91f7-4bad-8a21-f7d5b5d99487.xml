@@ -1022,234 +1022,300 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="295" parent="1" name="day09">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="296" parent="1" name="hrdsystem">
+    <schema id="296" parent="1" name="devquest">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="297" parent="1" name="information_schema">
+    <schema id="297" parent="1" name="hrdsystem">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="298" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="298" parent="1" name="kioskorder">
+    <schema id="299" parent="1" name="kioskorder">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="299" parent="1" name="mysql">
+    <schema id="300" parent="1" name="mysql">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="300" parent="1" name="performance_schema">
+    <schema id="301" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="301" parent="1" name="sakila">
+    <schema id="302" parent="1" name="sakila">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="302" parent="1" name="springexample">
+    <schema id="303" parent="1" name="springexample">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="303" parent="1" name="springweb">
-      <LastIntrospectionLocalTimestamp>2024-07-30.02:47:27</LastIntrospectionLocalTimestamp>
+    <schema id="304" parent="1" name="springweb">
+      <LastIntrospectionLocalTimestamp>2024-08-02.01:39:57</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="304" parent="1" name="sys">
+    <schema id="305" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="305" parent="1" name="todo">
+    <schema id="306" parent="1" name="todo">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="306" parent="1" name="todolist">
+    <schema id="307" parent="1" name="todolist">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="307" parent="1" name="world">
+    <schema id="308" parent="1" name="world">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <user id="308" parent="1" name="mysql.infoschema">
+    <user id="309" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="309" parent="1" name="mysql.session">
+    <user id="310" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="310" parent="1" name="mysql.sys">
+    <user id="311" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="311" parent="1" name="root">
+    <user id="312" parent="1" name="root">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="312" parent="303" name="bcategory">
+    <table id="313" parent="304" name="bcategory">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="313" parent="303" name="board">
+    <table id="314" parent="304" name="board">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="314" parent="303" name="member">
+    <table id="315" parent="304" name="breply">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="315" parent="312" name="bcno">
+    <table id="316" parent="304" name="member">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="317" parent="313" name="bcno">
       <AutoIncrement>9</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="316" parent="312" name="bcname">
+    <column id="318" parent="313" name="bcname">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="317" parent="312" name="bcdate">
+    <column id="319" parent="313" name="bcdate">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="318" parent="312" name="PRIMARY">
+    <index id="320" parent="313" name="PRIMARY">
       <ColNames>bcno</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="319" parent="312" name="bcname">
+    <index id="321" parent="313" name="bcname">
       <ColNames>bcname</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="320" parent="312" name="PRIMARY">
+    <key id="322" parent="313" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="321" parent="312" name="bcname">
+    <key id="323" parent="313" name="bcname">
       <UnderlyingIndexName>bcname</UnderlyingIndexName>
     </key>
-    <column id="322" parent="313" name="bno">
-      <AutoIncrement>101</AutoIncrement>
+    <column id="324" parent="314" name="bno">
+      <AutoIncrement>121</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
     </column>
-    <column id="323" parent="313" name="btitle">
+    <column id="325" parent="314" name="btitle">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="324" parent="313" name="bcontent">
+    <column id="326" parent="314" name="bcontent">
       <Position>3</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="325" parent="313" name="bfile">
+    <column id="327" parent="314" name="bfile">
       <Position>4</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="326" parent="313" name="bview">
+    <column id="328" parent="314" name="bview">
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="327" parent="313" name="bdate">
+    <column id="329" parent="314" name="bdate">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="328" parent="313" name="no">
+    <column id="330" parent="314" name="no">
       <Position>7</Position>
-      <StoredType>bigint|0s</StoredType>
+      <StoredType>bigint unsigned|0s</StoredType>
     </column>
-    <column id="329" parent="313" name="bcno">
+    <column id="331" parent="314" name="bcno">
       <Position>8</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <foreign-key id="330" parent="313" name="board_no_fk">
+    <foreign-key id="332" parent="314" name="board_no_fk">
       <ColNames>no</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>no</RefColNames>
       <RefTableName>member</RefTableName>
     </foreign-key>
-    <foreign-key id="331" parent="313" name="board_bcno_fk">
+    <foreign-key id="333" parent="314" name="board_bcno_fk">
       <ColNames>bcno</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>bcno</RefColNames>
       <RefTableName>bcategory</RefTableName>
     </foreign-key>
-    <index id="332" parent="313" name="PRIMARY">
+    <index id="334" parent="314" name="PRIMARY">
       <ColNames>bno</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="333" parent="313" name="board_no_fk">
+    <index id="335" parent="314" name="board_no_fk">
       <ColNames>no</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="334" parent="313" name="board_bcno_fk">
+    <index id="336" parent="314" name="board_bcno_fk">
       <ColNames>bcno</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="335" parent="313" name="PRIMARY">
+    <key id="337" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="336" parent="314" name="no">
+    <column id="338" parent="315" name="brno">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="339" parent="315" name="brindex">
+      <Position>2</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="340" parent="315" name="brcontent">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="341" parent="315" name="brdate">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="342" parent="315" name="no">
+      <Position>5</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="343" parent="315" name="bno">
+      <Position>6</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <foreign-key id="344" parent="315" name="breply_ibfk_1">
+      <ColNames>no</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>no</RefColNames>
+      <RefTableName>member</RefTableName>
+    </foreign-key>
+    <foreign-key id="345" parent="315" name="breply_ibfk_2">
+      <ColNames>bno</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>bno</RefColNames>
+      <RefTableName>board</RefTableName>
+    </foreign-key>
+    <index id="346" parent="315" name="PRIMARY">
+      <ColNames>brno</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="347" parent="315" name="no">
+      <ColNames>no</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="348" parent="315" name="bno">
+      <ColNames>bno</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="349" parent="315" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="350" parent="316" name="no">
       <AutoIncrement>31</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
+      <StoredType>bigint unsigned|0s</StoredType>
     </column>
-    <column id="337" parent="314" name="id">
+    <column id="351" parent="316" name="id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="338" parent="314" name="pw">
+    <column id="352" parent="316" name="pw">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="339" parent="314" name="name">
+    <column id="353" parent="316" name="name">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="340" parent="314" name="email">
+    <column id="354" parent="316" name="email">
       <Position>5</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="341" parent="314" name="phone">
+    <column id="355" parent="316" name="phone">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(13)|0s</StoredType>
     </column>
-    <index id="342" parent="314" name="PRIMARY">
+    <index id="356" parent="316" name="PRIMARY">
       <ColNames>no</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="343" parent="314" name="id">
+    <index id="357" parent="316" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="344" parent="314" name="phone">
+    <index id="358" parent="316" name="phone">
       <ColNames>phone</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="345" parent="314" name="PRIMARY">
+    <key id="359" parent="316" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="346" parent="314" name="id">
+    <key id="360" parent="316" name="id">
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
-    <key id="347" parent="314" name="phone">
+    <key id="361" parent="316" name="phone">
       <UnderlyingIndexName>phone</UnderlyingIndexName>
     </key>
   </database-model>

@@ -7,7 +7,7 @@ use springweb;
 drop table if exists member;
 create table member
 (
-    no    bigint auto_increment,             -- 회원번호
+    no    bigint unsigned auto_increment,    -- 회원번호
     id    varchar(30) not null unique,       -- 회원 아이디
     pw    varchar(30) not null,              -- 회원 비밀번호
     name  varchar(20) not null,              -- 회원 이름
@@ -81,7 +81,7 @@ create table board
     bfile    longtext,
     bview    int unsigned default 0     not null,
     bdate    datetime     default now() not null,
-    no       bigint,
+    no       bigint unsigned,
     bcno     int unsigned,
     constraint board_bno_pk primary key (bno),
     constraint board_no_fk foreign key (no) references member (no) on update cascade on delete cascade,
@@ -309,3 +309,18 @@ select count(*) as 총게시물수
 from board
 where bcno = 1
   and btitle like '%다%';
+
+# 게시물의 댓글
+drop table if exists breply;
+create table breply
+(
+    brno      bigint unsigned auto_increment, -- 댓글번호[pk]
+    brindex   bigint unsigned,                -- 댓글인덱스: 댓글 위치분류, 0이면 가장 상위의 댓글, 1이상이면 참조하는 상위 댓글번호
+    brcontent varchar(255),                   -- 댓글내용
+    brdate    datetime default now(),         -- 작성일
+    no        bigint unsigned,                -- 댓글을 작성한 작성자의 회원번호 작성자[fk]
+    bno       bigint unsigned,                -- 댓글 위치한 게시물번호[fk]
+    primary key (brno),
+    foreign key (no) references member (no) on update cascade on delete cascade,
+    foreign key (bno) references board (bno) on update cascade on delete cascade
+);

@@ -146,6 +146,25 @@ public class BoardService {
         return boardDao.bFindBno(bno);
     }
 
+    // 5. 게시물의 댓글 쓰기 처리, ??? 왜 Mapping 없는지
+    public boolean bReplyWrite(Map<String, String> map) {
+        System.out.println("BoardService.bReplyWrite");
+        System.out.println("map = " + map);
+        // ??? 왜 map
+
+        // 작성자(no)는 별도의 클라이언트로부터 입력받는 구조가 아니다
+        // ??? 왜 로그인 정보는 세션객체에 저장하는지 ???
+        Object object = memberService.mLoginCheck(); // ??? 왜 Object 타입에 넣는지
+        if (object == null) {
+            return false; // 비로그인시 함수 강제종료/취소
+        }
+        MemberDto memberDto = (MemberDto) object;
+        int no = memberDto.getNo();
+        map.put("no", String.valueOf(no));
+
+        return boardDao.bReplyWrite(map); // ??? 왜 dao 이동하는지
+    }
+
 }
 
 

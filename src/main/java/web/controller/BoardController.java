@@ -1,10 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
 import web.service.BoardService;
@@ -52,6 +49,15 @@ public class BoardController {
     @GetMapping("/find/bno")
     public BoardDto bFindBno(final int bno) {
         return boardService.bFindBno(bno);
+    }
+
+    // 5. 게시물의 댓글 쓰기 처리
+    @PostMapping("/reply/write") // ??? 왜 포스트 매핑
+    public boolean bReplyWrite(@RequestBody final Map<String, String> map) {
+        System.out.println("BoardController.bReplyWrite");
+        System.out.println("map = " + map);
+        // ??? 왜 map
+        return boardService.bReplyWrite(map); // ??? 왜 service
     }
 }
 

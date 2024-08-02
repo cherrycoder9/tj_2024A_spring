@@ -199,18 +199,42 @@ public class BoardDao extends Dao {
 
     // 5. 조회수 증가 처리
     public void bViewIncrease(final int bno) {
+        System.out.println("BoardDao.bViewIncrease");
         try {
             final String sql = "update board set bview = bview + 1 where bno = ? ";
             final PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, bno);
             ps.executeUpdate();
 
+
         } catch (final Exception e) {
             System.out.println(e);
         }
     }
 
+    // 5. 게시물의 댓글 쓰기 처리
+    public boolean bReplyWrite(final Map<String, String> map) {
+        System.out.println("BoardDao.bReplyWrite");
+        System.out.println("map = " + map);
+        // ??? 왜 map
 
+        try {
+            final String sql = "insert into breply(brindex, brcontent, no, bno) values(?,?,?,?)";
+            final PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(map.get("brindex"))); // ??? 왜 parseInt 하는지
+            ps.setString(2, map.get("brcontent"));
+            ps.setInt(3, Integer.parseInt(map.get("no")));
+            ps.setInt(4, Integer.parseInt(map.get("bno")));
+
+            final int count = ps.executeUpdate();
+            if (count == 1) {
+                return true;
+            }
+        } catch (final Exception e) {
+            System.out.println(e);
+        }
+        return false; // ??? 왜 true/false를 넣는건지
+    }
 }
 
 

@@ -7,23 +7,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/board/view.css" />
+    <script src="/js/board/view.js" defer></script>
 </head>
 
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
-    <div class="container viewBox">
-        <div class="bTitle"> 안녕하세요1 (제목구역) </div>
-        <div>
-            <div class="bcName"> ( 카테고리명 ) </div>
-            <div class="etcBox"> (작성자) , ( 조회수 ) , ( 작성일 ) </div>
-        </div>
-        <div class="bContent"> 내용 (내용구역) </div>
-        <div class="bFile"> 첨부파일( 첨부파일구역 )</div>
-        <div class="btnBox">
 
+    <div class="container viewBox mt-5">
+        <div class="bTitle">안녕하세요1 (제목구역)</div>
+        <div class="row">
+            <div class="col-md-6">
+                <span class="bcName">( 카테고리명 )</span>
+            </div>
+            <div class="col-md-6 text-end">
+                <div class="etcBox">(작성자) , ( 조회수 ) , ( 작성일 )</div>
+            </div>
+        </div>
+        <div class="bContent">내용 (내용구역)</div>
+        <div class="bFile">첨부파일( 첨부파일구역 )</div>
+        <div class="btnBox d-flex justify-content-end">
+            <button class="btn btn-primary me-2">수정</button>
+            <button class="btn btn-danger">삭제</button>
+        </div>
+
+        <div class="mt-4">
+            <textarea class="form-control brcontent" rows="3" placeholder="댓글을 입력하세요"></textarea>
+            <button type="button" class="btn btn-success mt-2" onclick="onReplyWrite()">댓글등록</button>
         </div>
     </div>
-    <script src="/js/board/view.js"></script>
+
     <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
 
