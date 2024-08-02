@@ -217,11 +217,14 @@ public class BoardDao extends Dao {
         System.out.println("BoardDao.bReplyWrite");
         System.out.println("map = " + map);
         // ??? 왜 map
+        // 여러 데이터를 유연하게 처리하기 위해 사용
+        // 다양한 필드를 받아야 할 때 유용
 
         try {
             final String sql = "insert into breply(brindex, brcontent, no, bno) values(?,?,?,?)";
             final PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(map.get("brindex"))); // ??? 왜 parseInt 하는지
+            // Map<String, String>으로 받은 데이터는 문자열 타입이기 때문
             ps.setString(2, map.get("brcontent"));
             ps.setInt(3, Integer.parseInt(map.get("no")));
             ps.setInt(4, Integer.parseInt(map.get("bno")));
@@ -234,6 +237,7 @@ public class BoardDao extends Dao {
             System.out.println(e);
         }
         return false; // ??? 왜 true/false를 넣는건지
+        // 댓글 쓰기 작업의 성공 여부를 나타내기 위해
     }
 }
 

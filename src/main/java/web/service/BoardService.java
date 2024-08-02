@@ -147,22 +147,37 @@ public class BoardService {
     }
 
     // 5. 게시물의 댓글 쓰기 처리, ??? 왜 Mapping 없는지
-    public boolean bReplyWrite(Map<String, String> map) {
+    // 컨트롤러와 서비스 계층의 역할이 다르기 때문
+    // Mapping은 주로 HTTP 요청과 특정 메서드를 연결하기 위해 사용되며 주로 컨트롤러의 역할
+    // 서비스 계층은 비즈니스 로직을 처리하는 역할
+    public boolean bReplyWrite(final Map<String, String> map) {
         System.out.println("BoardService.bReplyWrite");
         System.out.println("map = " + map);
         // ??? 왜 map
+        // 다양한 키-값 쌍을 하나의 객체로 전달하기 위함
+        // 댓글 작성 시 여러 데이터 항목을 받아야 하므로 이를 Map으로 전달하면 유연하게 데이터를 처리
+        // 다양한 데이터 항목을 손쉽게 처리할 수 있음.
+        // 새로운 필드를 추가하거나 제거할 때 DTO 클래스를 수정할 필요가 없음
+        // 간단한 데이터를 처리할 때 코드가 간단해짐
 
         // 작성자(no)는 별도의 클라이언트로부터 입력받는 구조가 아니다
         // ??? 왜 로그인 정보는 세션객체에 저장하는지 ???
-        Object object = memberService.mLoginCheck(); // ??? 왜 Object 타입에 넣는지
+        // 사용자가 로그인된 상태를 유지할 수 있음
+        // 세션은 서버 측에서 사용자별로 상태를 관리하는 방식
+        // 세션에 로그인 정보를 저장하여 이후의 요청에서 이 정보를 참조할 수 있음
+        // 매번 로그인 정보를 확인할 필요 없이, 세션에서 로그인 상태를 유지하고 쉽게 접근
+        final Object object = memberService.mLoginCheck(); // ??? 왜 Object 타입에 넣는지
+        // 메서드가 반환할 수 있는 객체의 타입이 명확하지 않거나 다양한 타입을 반환할 수 있기 때문
         if (object == null) {
             return false; // 비로그인시 함수 강제종료/취소
         }
-        MemberDto memberDto = (MemberDto) object;
-        int no = memberDto.getNo();
+        final MemberDto memberDto = (MemberDto) object;
+        final int no = memberDto.getNo();
         map.put("no", String.valueOf(no));
 
         return boardDao.bReplyWrite(map); // ??? 왜 dao 이동하는지
+        // 데이터베이스와의 상호작용을 담당하기 위해
+        // 비즈니스 로직과 데이터 접근 로직을 분리하여 코드의 유지보수성과 확장성을 높이기 위해 사용
     }
 
 }

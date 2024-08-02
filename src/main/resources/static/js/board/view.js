@@ -69,7 +69,7 @@ function onReplyWrite() {
     let brcontent = document.querySelector('.brcontent').value;
     console.log(brcontent);
 
-    let = info = { brcontent: brcontent, brindex: 0, bno: bno };
+    let info = { brcontent: brcontent, brindex: 0, bno: bno };
     $.ajax({
         async: false,
         method: "post",
