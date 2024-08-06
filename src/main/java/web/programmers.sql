@@ -1,0 +1,50 @@
+# 1.인기있는 아이스크림
+SELECT FLAVOR
+FROM FIRST_HALF
+ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC;
+
+# 2.모든 레코드 조회하기
+SELECT *
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID ASC;
+
+# 3.역순 정렬하기
+SELECT NAME, DATETIME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID DESC;
+
+# 4. 동물의 아이디와 이름
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID ASC;
+
+# 5. 여러 기준으로 정렬하기
+SELECT ANIMAL_ID, NAME, DATETIME
+FROM ANIMAL_INS
+ORDER BY NAME ASC, DATETIME DESC;
+
+# 6. 과일로 만든 아이스크림 고르기
+SELECT FH.FLAVOR
+FROM FIRST_HALF FH
+         JOIN ICECREAM_INFO II ON FH.FLAVOR = II.FLAVOR
+WHERE FH.TOTAL_ORDER > 3000
+  AND II.INGREDIENT_TYPE = 'fruit_based'
+ORDER BY FH.TOTAL_ORDER DESC;
+
+# 7.조건에 부합하는 중고거래 댓글 조회하기
+
+
+# 8.강원도에 위치한 생산공장 목록 출력하기
+
+
+# 9. 아픈 동물 찾기
+
+
+# 10. 어린 동물 찾기
+
+
+# 11. 상위 n개 레코드
+
+
+# 12. Python 개발자 찾기
+
